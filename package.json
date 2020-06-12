@@ -1,0 +1,14 @@
+{
+  "name": "frontity-wp-job-openings",
+  "version": "1.0.0",
+  "description": "Frontity package for WP Job Openings Plugin",
+  "keywords": [
+    "frontity",
+    "frontity-awsmjobs"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "frontity": "^1.8.0",
+    "@frontity/html2react": "^1.3.3"
+  }
+}
