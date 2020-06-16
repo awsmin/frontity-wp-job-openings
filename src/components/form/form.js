@@ -32,9 +32,25 @@ const JobForm = styled.form`
 
     & .awsm-job-form-group {
         margin-bottom: 20px;
+
+        & label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+    & .awsm-job-inline-group {
+        & label {
+            display: inline;
+            font-weight: 400;
+            margin-left: 5px;
+        }
     }
     & .awsm-job-form-control {
         display: block;
+    }
+    & .awsm-job-form-error {
+        color: #db4c4c;
+        font-weight: 500;
     }
     & small {
         display: block;
