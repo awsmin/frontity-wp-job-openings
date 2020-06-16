@@ -4,7 +4,7 @@ const formActions = {
   initForm: ( { state } ) => {
       return ( id ) => {
         if ( !state.awsmjobs.forms[ id ] ) {
-          state.awsmjobs.forms[ id ] = { values: {} };
+          state.awsmjobs.forms[ id ] = { values: {}, submitting: false };
         }
       };
   },
@@ -35,6 +35,8 @@ const formActions = {
         body: formData
       } );
       const body = await response.json();
+
+      state.awsmjobs.forms[ id ].submitting = false;
 
       let messages = [];
       if ( body.success.length > 0 ) {

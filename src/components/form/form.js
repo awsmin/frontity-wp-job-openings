@@ -13,6 +13,7 @@ const Form = ( { state, actions, children, id } ) => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
+        state.awsmjobs.forms[ jobId ].submitting = true;
         actions.awsmjobs.submitForm( jobId );
     };
 
@@ -22,7 +23,7 @@ const Form = ( { state, actions, children, id } ) => {
                 {children}
             </JobForm>
 
-            <Notice />
+            { !state.awsmjobs.forms[ jobId ].submitting && <Notice /> }
         </FormIdContext.Provider>
     );
 };
