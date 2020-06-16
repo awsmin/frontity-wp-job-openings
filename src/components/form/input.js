@@ -41,6 +41,7 @@ const Input = ( { state, actions, inputProps } ) => {
         onChange: onChangeHandler
     };
     if ( inputType === 'file' ) {
+        componentProps.accept = inputProps.accept;
         componentProps.ref = fileInput;
     } else {
         componentProps.value = value;
