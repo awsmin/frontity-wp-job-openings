@@ -39,15 +39,22 @@ const JobForm = styled.form`
             margin-bottom: 10px;
         }
     }
-    & .awsm-job-inline-group {
-        & label {
-            display: inline;
-            font-weight: 400;
-            margin-left: 5px;
+    & .awsm-job-inline-group label,
+    & .awsm-job-form-options-container label {
+        display: inline;
+        font-weight: 400;
+        margin-left: 5px;
+    }
+    & .awsm-job-form-options-container {
+        & span {
+            display: inline-block;
+            margin-bottom: 10px;
+            margin-left: 10px;
         }
     }
     & .awsm-job-form-control {
         display: block;
+        width: 100%;
     }
     & .awsm-job-form-error {
         color: #db4c4c;
