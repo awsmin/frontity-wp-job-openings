@@ -8,10 +8,11 @@ const Input = ( { state, actions, inputProps } ) => {
 
     const inputName = inputProps.name;
     const inputType = inputProps.type;
+    const inputValue = inputProps.value;
     
     if (typeof state.awsmjobs.forms[ jobId ].values[ inputName ] === 'undefined') {
-        let initialValue = inputProps.value;
-        if ( inputType === 'checkbox' ) {
+        let initialValue = inputValue;
+        if ( inputType === 'checkbox' || inputType === 'radio' ) {
             initialValue = '';
         }
         actions.awsmjobs.setFieldValue( jobId, inputName, initialValue );
@@ -23,14 +24,14 @@ const Input = ( { state, actions, inputProps } ) => {
             currentValue = e.target.files[0];
         } else {
             currentValue = e.target.value;
+            if ( inputType === 'checkbox' || inputType === 'radio' ) {
+                currentValue = e.target.checked ? currentValue : '';
+            }
         }
         actions.awsmjobs.setFieldValue( jobId, inputName, currentValue );
     };
 
     let value = state.awsmjobs.forms[ jobId ].values[ inputName ];
-    if ( inputType === 'checkbox' && value === '' ) {
-        value = inputProps.value;
-    }
 
     let componentProps = {
         type: inputType,
@@ -43,6 +44,9 @@ const Input = ( { state, actions, inputProps } ) => {
     if ( inputType === 'file' ) {
         componentProps.accept = inputProps.accept;
         componentProps.ref = fileInput;
+    } else if( inputType === 'checkbox' || inputType === 'radio' ) {
+        componentProps.value = inputValue;
+        componentProps.checked = inputValue === value ? true : false;
     } else {
         componentProps.value = value;
     }
