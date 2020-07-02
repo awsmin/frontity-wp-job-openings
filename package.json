@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/awsmin/frontity-wp-job-openings/issues"
   },
-  "license": "GNU GPL 2",
+  "license": "GPL-2.0-or-later",
   "author": "Awsm Innovations",
   "files": [
     "src"
