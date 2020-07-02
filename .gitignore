@@ -1,5 +1,7 @@
 # General
 .DS_Store
+Thumbs.db
+*.zip
 
 # Logs
 logs
@@ -13,3 +15,6 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # Dependency directories
 node_modules
+
+# VS Code
+*.code-workspace
