@@ -9,7 +9,7 @@ import awsmJobsSubmitButton from './processors/form/submit-button';
 import formActions from './actions/form';
 
 export default {
-  name: "frontity-wp-job-openings",
+  name: "@awsmin/frontity-wp-job-openings",
   state: {
     awsmjobs: {
       ajaxurl: '',

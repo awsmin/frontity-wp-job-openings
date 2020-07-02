@@ -31,11 +31,11 @@ The plugin comes with two layouts - Grid and List which are designed carefully a
         "packages": [
             ...
             // If no settings need to be added.
-            "frontity-wp-job-openings",
+            "@awsmin/frontity-wp-job-openings",
 
             // If you want to add settings.
             {
-                "name": "frontity-wp-job-openings",
+                "name": "@awsmin/frontity-wp-job-openings",
                 // Add your settings here.
             },
             ...

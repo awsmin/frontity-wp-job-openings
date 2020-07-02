@@ -1,5 +1,5 @@
 {
-  "name": "frontity-wp-job-openings",
+  "name": "@awsmin/frontity-wp-job-openings",
   "version": "1.0.0",
   "description": "Frontity package for WP Job Openings Plugin",
   "keywords": [
