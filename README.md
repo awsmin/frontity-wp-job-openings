@@ -111,21 +111,21 @@ That's it! Now, when you run the `npx frontity dev` you can access the job listi
 
 ### Job Detail Page (Mars Theme)
 
-![Job Detail Page](https://user-images.githubusercontent.com/22009263/86373442-06ea5b00-bca1-11ea-88a3-77093b717529.png)
+![Job Detail Page](https://github.com/awsmin/frontity-wp-job-openings/raw/master/assets/job-page.png)
 
 ### Application Submission
 
 #### Errors
 
-![Errors](https://user-images.githubusercontent.com/22009263/86373446-081b8800-bca1-11ea-9aca-16f4cc161e73.png)
+![Errors](https://github.com/awsmin/frontity-wp-job-openings/raw/master/assets/submission-errors.png)
 
 #### Success
 
-![Success](https://user-images.githubusercontent.com/22009263/86373450-08b41e80-bca1-11ea-85e7-93b618d3a1b5.png)
+![Success](https://github.com/awsmin/frontity-wp-job-openings/raw/master/assets/submission-success.png)
 
 ### Application View (WordPress)
 
-![Application](https://user-images.githubusercontent.com/22009263/86373424-03ef6a80-bca1-11ea-957b-3c479a4448f1.png)
+![Application](https://github.com/awsmin/frontity-wp-job-openings/raw/master/assets/job-application.png)
 
 ## Limitations
 
