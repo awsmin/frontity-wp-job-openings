@@ -21,6 +21,11 @@ The plugin comes with two layouts - Grid and List which are designed carefully a
 ## Setup
 
 1. Install the package
+
+    ```
+    npm i @awsmin/frontity-wp-job-openings
+    ```
+
 2. Add it to Frontity Settings
 
     Add the package to `frontity.settings.js` inside the `packages` array.
