@@ -11,10 +11,19 @@
     "jobs",
     "careers"
   ],
+  "homepage": "https://github.com/awsmin/frontity-wp-job-openings#readme",
+  "bugs": {
+    "url": "https://github.com/awsmin/frontity-wp-job-openings/issues"
+  },
   "license": "GNU GPL 2",
+  "author": "Awsm Innovations",
   "files": [
     "src"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awsmin/frontity-wp-job-openings.git"
+  },
   "dependencies": {
     "frontity": "^1.8.0",
     "@frontity/html2react": "^1.3.3",
