@@ -21,6 +21,7 @@
     "@frontity/wp-source": "^1.8.0",
     "@frontity/tiny-router": "^1.2.1",
     "@frontity/html2react": "^1.3.4",
-    "@frontity/mars-theme": "./packages/mars-theme"
+    "@frontity/mars-theme": "./packages/mars-theme",
+    "@awsmin/frontity-wp-job-openings": "./packages/frontity-wp-job-openings"
   }
 }
