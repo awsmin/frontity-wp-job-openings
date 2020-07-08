@@ -7,13 +7,15 @@ import awsmJobsRecaptchaField from './processors/form/recaptcha-field';
 import awsmJobsSubmitButton from './processors/form/submit-button';
 
 import formActions from './actions/form';
+import jobsRedirect from './redirections/jobs-redirect';
 
 export default {
   name: "@awsmin/frontity-wp-job-openings",
   state: {
     awsmjobs: {
       ajaxurl: '',
-      forms: {}
+      forms: {},
+      slug: "jobs"
     },
     source: {
       postTypes: [
@@ -26,7 +28,12 @@ export default {
     }
   },
   actions: {
-    awsmjobs: { ...formActions }
+    awsmjobs: {
+      init: ({state, libraries}) => {
+        libraries.source.redirections.push(jobsRedirect(state.awsmjobs.slug));
+      },
+      ...formActions
+    }
   },
   libraries: {
     html2react: {
