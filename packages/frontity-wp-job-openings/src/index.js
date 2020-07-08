@@ -15,6 +15,15 @@ export default {
       ajaxurl: '',
       forms: {}
     },
+    source: {
+      postTypes: [
+        {
+          type: "awsm_job_openings",
+          endpoint: "awsm_job_openings",
+          archive: "/jobs"
+        }
+      ]
+    }
   },
   actions: {
     awsmjobs: { ...formActions }
