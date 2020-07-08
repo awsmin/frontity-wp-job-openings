@@ -24,12 +24,14 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "https://demo.awsm.in/wp-job-openings/wp-json"
+          "api": "https://demo.awsm.in/wp-job-openings/wp-json",
+          "homepage": "/jobs"
         }
       }
     },
     "@frontity/tiny-router",
-    "@frontity/html2react"
+    "@frontity/html2react",
+    "@awsmin/frontity-wp-job-openings"
   ]
 };
 
