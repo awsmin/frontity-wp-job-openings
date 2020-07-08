@@ -1,59 +1,40 @@
 import React, { useContext } from 'react';
-import { connect } from 'frontity';
+import { connect, useConnect } from 'frontity';
 import { FormIdContext } from './form';
 
-const Input = ( { state, actions, inputProps } ) => {
+const Input = (props) => {
+    const { state, actions } = useConnect();
     const jobId = useContext(FormIdContext);
     const fileInput = React.useRef();
 
-    const inputName = inputProps.name;
-    const inputType = inputProps.type;
-    const inputValue = inputProps.value;
+    const inputName = props.name;
+    const inputValue = typeof props.value !== 'undefined' ? props.value : '';
     
     if (typeof state.awsmjobs.forms[ jobId ].values[ inputName ] === 'undefined') {
-        let initialValue = inputValue;
-        if ( inputType === 'checkbox' || inputType === 'radio' ) {
-            initialValue = '';
-        }
-        actions.awsmjobs.setFieldValue( jobId, inputName, initialValue );
+        actions.awsmjobs.setFieldValue( jobId, inputName, props.type === 'checkbox' ? '' : inputValue );
     }
 
     const onChangeHandler = (e) => {
-        let currentValue = '';
-        if ( inputType === 'file' ) {
-            currentValue = e.target.files[0];
-        } else {
-            currentValue = e.target.value;
-            if ( inputType === 'checkbox' || inputType === 'radio' ) {
-                currentValue = e.target.checked ? currentValue : '';
-            }
+        const target = e.target;
+        let currentValue = props.type === 'file' ? target.files[0] : target.value;
+        if ( props.type === 'checkbox' || props.type === 'radio' ) {
+            currentValue = target.checked ? currentValue : '';
         }
         actions.awsmjobs.setFieldValue( jobId, inputName, currentValue );
     };
 
     let value = state.awsmjobs.forms[ jobId ].values[ inputName ];
 
-    let componentProps = {
-        type: inputType,
-        name: inputName,
-        className: inputProps.className,
-        id: inputProps.id,
-        'aria-required': inputProps.ariaRequired,
-        onChange: onChangeHandler
-    };
-    if ( inputType === 'file' ) {
-        componentProps.accept = inputProps.accept;
-        componentProps.ref = fileInput;
-    } else if( inputType === 'checkbox' || inputType === 'radio' ) {
-        componentProps.value = inputValue;
-        componentProps.checked = inputValue === value ? true : false;
+    if ( props.type === 'file' ) {
+        props.ref = fileInput;
+    } else if( props.type === 'checkbox' || props.type === 'radio' ) {
+        props.checked = inputValue === value ? true : false;
     } else {
-        componentProps.value = value;
+        props.value = value;
     }
+    props.onChange = onChangeHandler;
 
-    return (
-        <input { ...componentProps } />
-    );
+    return <input {...props} />;
 };
 
-export default connect(Input);
+export default connect(Input, { injectProps: false });

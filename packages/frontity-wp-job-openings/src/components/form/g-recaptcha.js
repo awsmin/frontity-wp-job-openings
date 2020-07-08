@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
-import { connect } from 'frontity';
+import { connect, useConnect } from 'frontity';
 import { FormIdContext } from './form';
 import ReCAPTCHA from "react-google-recaptcha";
 
-const GRecaptcha = ( { actions, recaptchaProps } ) => {
+const GRecaptcha = (props) => {
+    const { actions } = useConnect();
     const jobId = useContext(FormIdContext);
+    const siteKey = props.children[0].props['data-sitekey'];
 
     const onChangeHandler = (value) => {
         actions.awsmjobs.setFieldValue( jobId, 'g-recaptcha-response', value );
@@ -13,11 +15,11 @@ const GRecaptcha = ( { actions, recaptchaProps } ) => {
     return (
         <div className="awsm-job-form-group awsm-job-g-recaptcha-group">
             <ReCAPTCHA
-                sitekey={ recaptchaProps['data-sitekey'] }
+                sitekey={ siteKey }
                 onChange={ onChangeHandler }
             />
         </div>
     );
 };
 
-export default connect( GRecaptcha );
+export default connect(GRecaptcha, { injectProps: false });

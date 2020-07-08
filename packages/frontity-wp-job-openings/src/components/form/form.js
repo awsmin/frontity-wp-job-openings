@@ -19,7 +19,7 @@ const Form = ( { state, actions, children, id } ) => {
 
     return (
         <FormIdContext.Provider value={jobId}>
-            <JobForm id={ id } method="POST" onSubmit={ onSubmitHandler }>
+            <JobForm id={ id } method="POST" onSubmit={ onSubmitHandler } noValidate>
                 {children}
             </JobForm>
 

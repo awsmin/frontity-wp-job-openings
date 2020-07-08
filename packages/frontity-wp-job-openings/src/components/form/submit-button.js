@@ -1,24 +1,16 @@
 import React, { useContext } from 'react';
-import { connect } from 'frontity';
+import { connect, useConnect } from 'frontity';
 import { FormIdContext } from './form';
 
-const SubmitButton = ( { state, buttonProps } ) => {
+const SubmitButton = (props) => {
+    const { state } = useConnect();
     const jobId = useContext(FormIdContext);
 
-    let value = buttonProps.value;
     if ( typeof state.awsmjobs.forms[ jobId ].submitting !== 'undefined' && state.awsmjobs.forms[ jobId ].submitting ) {
-        value = 'Submitting..';
+        props.value = 'Submitting..';
     }
 
-    return (
-        <input
-            type={ buttonProps.type }
-            name={ buttonProps.name }
-            className={ buttonProps.className }
-            id={ buttonProps.id }
-            value={ value }
-        />
-    );
+    return <input {...props} />;
 };
 
-export default connect(SubmitButton);
+export default connect(SubmitButton, { injectProps: false });

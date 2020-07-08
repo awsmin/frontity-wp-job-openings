@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
-import { connect } from 'frontity';
+import { connect, useConnect } from 'frontity';
 import { FormIdContext } from './form';
 
-const InputHidden = ( { state, actions, inputProps } ) => {
+const InputHidden = (props) => {
+    const { actions } = useConnect();
     const jobId = useContext(FormIdContext);
-    const inputName = inputProps.name;
 
-    actions.awsmjobs.setFieldValue( jobId, inputName, inputProps.value )
+    actions.awsmjobs.setFieldValue( jobId, props.name, typeof props.value !== 'undefined' ? props.value : '' );
 
     return null;
 };
 
-export default connect(InputHidden);
+export default connect(InputHidden, {injectProps: false});
