@@ -1,36 +1,26 @@
 {
-  "name": "@awsmin/frontity-wp-job-openings",
+  "name": "frontity-wp-job-openings",
   "version": "1.0.0",
-  "description": "Frontity package for WP Job Openings Plugin",
+  "private": true,
+  "description": "Frontity project for WP Job Openings",
   "keywords": [
-    "frontity",
-    "frontity-awsmjobs",
-    "wordpress",
-    "react",
-    "wp-job-openings",
-    "jobs",
-    "careers"
+    "frontity"
   ],
-  "homepage": "https://github.com/awsmin/frontity-wp-job-openings#readme",
-  "bugs": {
-    "url": "https://github.com/awsmin/frontity-wp-job-openings/issues"
+  "scripts": {
+    "dev": "frontity dev",
+    "build": "frontity build",
+    "serve": "frontity serve"
   },
+  "homepage": "https://github.com/awsmin/frontity-wp-job-openings#readme",
   "license": "GPL-2.0-or-later",
   "author": "Awsm Innovations",
-  "files": [
-    "src"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/awsmin/frontity-wp-job-openings.git"
-  },
+  "prettier": {},
   "dependencies": {
-    "frontity": "^1.8.0",
-    "@frontity/html2react": "^1.3.3",
-    "@frontity/wp-source": "^1.7.1",
-    "react-google-recaptcha": "^2.1.0"
-  },
-  "publishConfig": {
-    "access": "public"
+    "frontity": "^1.10.0",
+    "@frontity/core": "^1.7.2",
+    "@frontity/wp-source": "^1.8.0",
+    "@frontity/tiny-router": "^1.2.1",
+    "@frontity/html2react": "^1.3.4",
+    "@frontity/mars-theme": "./packages/mars-theme"
   }
 }
