@@ -1,6 +1,7 @@
 import React from "react";
 import { connect, styled, decode } from "frontity";
 import Item from "./list-item";
+import JobItem from "./job-list-item";
 import Pagination from "./pagination";
 
 const List = ({ state }) => {
@@ -27,8 +28,11 @@ const List = ({ state }) => {
       {/* Iterate over the items of the list. */}
       {data.items.map(({ type, id }) => {
         const item = state.source[type][id];
-        // Render one Item component for each one.
-        return <Item key={item.id} item={item} />;
+        if (data.isAwsmJobOpeningsArchive) {
+          return <JobItem key={item.id} item={item} />;
+        } else {
+          return <Item key={item.id} item={item} />;
+        }
       })}
       <Pagination />
     </Container>
