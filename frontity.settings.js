@@ -25,7 +25,8 @@ const settings = {
       "state": {
         "source": {
           "api": "https://demo.awsm.in/wp-job-openings/wp-json",
-          "homepage": "/jobs"
+          "homepage": "/jobs",
+          "postsPage": "/blog"
         }
       }
     },
