@@ -12,7 +12,9 @@ import Link from "../link";
  */
 const Pagination = ({ state, actions }) => {
   // Get the total posts to be displayed based for the current link
-  const { next, previous } = state.source.get(state.router.link);
+  const { next, previous, isAwsmJobOpeningsArchive } = state.source.get(
+    state.router.link
+  );
 
   // Pre-fetch the the next page if it hasn't been fetched yet.
   useEffect(() => {
@@ -24,7 +26,7 @@ const Pagination = ({ state, actions }) => {
       {/* If there's a next page, render this link */}
       {next && (
         <Link link={next}>
-          <Text>← Older posts</Text>
+          <Text>← {isAwsmJobOpeningsArchive ? "Previous" : "Older posts"}</Text>
         </Link>
       )}
 
@@ -33,7 +35,7 @@ const Pagination = ({ state, actions }) => {
       {/* If there's a previous page, render this link */}
       {previous && (
         <Link link={previous}>
-          <Text>Newer posts →</Text>
+          <Text>{isAwsmJobOpeningsArchive ? "Next" : "Newer posts"} →</Text>
         </Link>
       )}
     </div>
