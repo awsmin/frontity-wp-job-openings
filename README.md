@@ -1,6 +1,6 @@
 # WP Job Openings - Frontity Package
 
-Frontity package for WP Job Openings plugin. This package enables the support for application form provided by the WP Job Openings plugin. All the default fields and the fields supported by [WP Job Openings Pro](https://awsm.in/get/wpjo-pro/) are supported.
+Frontity package for WP Job Openings plugin. This package enables the support for [WP Job Openings](https://wordpress.org/plugins/wp-job-openings/) plugin in the Frontity framework including the support for application form. All the default fields and the fields supported by [WP Job Openings Pro](https://awsm.in/get/wpjo-pro/) are supported in the job application form.
 
 ## About WP Job Openings
 
@@ -20,7 +20,7 @@ The plugin comes with two layouts - Grid and List which are designed carefully a
 - [WP Job Openings Plugin](https://wordpress.org/plugins/wp-job-openings/)
 - An add-on(plugin) for WP Job Openings plugin or custom functions added in theme's fuctions.php file to expose application form and other fields to WP REST API. You can use [WP Job Openings REST API (Example) Plugin](https://github.com/awsmin/wp-job-openings-rest-api-example) for reference.
 
-## Setup
+## Setup Package
 
 1. Install the package
 
@@ -52,9 +52,9 @@ The plugin comes with two layouts - Grid and List which are designed carefully a
    export default settings;
    ```
 
-3. Enable Custom Post Types support.
+3. Configure the slug (Optional)
 
-   In the `@frontity/wp-source` package settings you have to add the `postTypes` option for enabling support for custom post type.
+   When you access `/jobs` (after you run `npx frontity dev` command) you will get all the job listings. If you have used different slug for the archive page then you have to configure the `slug` setting in `frontity.settings.js`. For example, if you have used a slug `careers` instead of `jobs`:
 
    ```
    const settings = {
@@ -62,20 +62,13 @@ The plugin comes with two layouts - Grid and List which are designed carefully a
        "packages": [
            ...
            {
-               "name": "@frontity/wp-source",
+               "name": "@awsmin/frontity-wp-job-openings",
                "state": {
-                   "source": {
-                       "api": "https://example.com/wp-json",
-                       "postTypes": [
-                           {
-                               "type": "awsm_job_openings",
-                               "endpoint": "awsm_job_openings",
-                               "archive": "/jobs"
-                           }
-                       ]
+                   "awsmjobs": {
+                       "slug": "careers"
                    }
                }
-           },
+           }
            ...
        ]
    };
@@ -83,36 +76,7 @@ The plugin comes with two layouts - Grid and List which are designed carefully a
    export default settings;
    ```
 
-   Now, when you access the `/jobs` you will get all the job listings (after you run `npx frontity dev` command). If you have used different slug for the archive page then you may have to use that instead of `/jobs`.
-
-   Due to some current limitations of the `@frontity/wp-source`, you may also have to add a custom redirection to the `index.js` file in your theme package. If your slug is different you have to replace `jobs` with your custom slug.
-
-   ```
-   const jobsRedirect = {
-       name: "awsm_job_openings",
-       pattern: "/jobs/:slug",
-       func: ({ slug }) => `/awsm_job_openings/${slug}/`
-   };
-   ```
-
-   Then, add it to the `redirections` array inside `libraries.source`. For example, if you are using the Frontity Mars Theme:
-
-   ```
-       const marsTheme = {
-           name: "@frontity/mars-theme",
-           ...
-           libraries: {
-               ...
-               source: {
-                   redirections: [jobsRedirect]
-               }
-           }
-       };
-
-       export default marsTheme;
-   ```
-
-That's it! Now, when you run the `npx frontity dev` you can access the job listings from the jobs archive page(e.g. `/jobs`). You can use [WP Job Openings REST API (Example) Plugin](https://github.com/awsmin/wp-job-openings-rest-api-example) for retrieving job specifications and using it in your frontity theme package.
+That's it! Now, when you run the `npx frontity dev` command you can access the job listings from the jobs archive page(e.g. `/jobs`). You can use [WP Job Openings REST API (Example) Plugin](https://github.com/awsmin/wp-job-openings-rest-api-example) for retrieving job specifications and using it in your frontity theme package. You can find an [example](https://github.com/awsmin/frontity-wp-job-openings/blob/master/packages/mars-theme/src/components/list/job-list-item.js) for this from this Frontity project.
 
 ## Screenshots
 
@@ -156,7 +120,7 @@ add_filter( 'allowed_http_origins', 'awsm_allowed_http_origins' );
 
 ## Credits
 
-- [Frontity Team](https://community.frontity.org/t/how-to-create-a-frontity-package-for-contact-form-7/623)
+- Frontity Team [ [1](https://community.frontity.org/t/how-to-create-a-frontity-package-for-contact-form-7/623), [2](https://community.frontity.org/t/wp-job-openings-frontity-package/2299/3) ]
 - [frontity-contact-form-7](https://github.com/imranhsayed/frontity-contact-form-7) package by Imran Sayed
 
 ## Resources
