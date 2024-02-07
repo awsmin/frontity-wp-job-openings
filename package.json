@@ -11,13 +11,17 @@
     "build": "frontity build",
     "serve": "frontity serve"
   },
+  "overrides": {
+    "chokidar": "3.5.3",
+    "glob-parent": "6.0.2"
+  },
   "homepage": "https://github.com/awsmin/frontity-wp-job-openings#readme",
   "license": "GPL-2.0-or-later",
   "author": "Awsm Innovations",
   "prettier": {},
   "dependencies": {
-    "frontity": "^1.10.0",
-    "@frontity/core": "^1.7.2",
+    "frontity": "^1.8",
+    "@frontity/core": "^1.9.1",
     "@frontity/wp-source": "^1.8.0",
     "@frontity/tiny-router": "^1.2.1",
     "@frontity/html2react": "^1.3.4",
