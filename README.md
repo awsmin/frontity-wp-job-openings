@@ -16,6 +16,8 @@ The plugin comes with two layouts - Grid and List which are designed carefully a
 
 **[Open in CodeSandbox](https://githubbox.com/awsmin/frontity-wp-job-openings)**
 
+**[Open in Codeanywhere](https://app.codeanywhere.com/#https://github.com/awsmin/frontity-wp-job-openings)**
+
 ## Installation Requirements
 
 - [Frontity installation requirements](https://docs.frontity.org/getting-started#installation-requirements)
