@@ -13,7 +13,12 @@
   },
   "overrides": {
     "chokidar": "3.5.3",
-    "glob-parent": "6.0.2"
+    "glob-parent": "6.0.2",
+    "braces": "3.0.3",
+    "tmp": "^0.2.7",
+    "@frontity/wp-source": {
+      "path-to-regexp": "3.3.0"
+    }
   },
   "homepage": "https://github.com/awsmin/frontity-wp-job-openings#readme",
   "license": "GPL-2.0-or-later",
